@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Drewno Kominkowe</title>
+
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    
+    <header>
+        <img src="img/header.svg" alt="drewno kominkowe">
+        <nav>
+            <ul class="menu">
+                <li class="oferta">
+                    <a href="index.html"><img src="img/tree.svg">OFERTA</a>
+                </li>
+                <li class="dostawa">
+                    <a href="dostawa.html"><img src="img/tree.svg">DOSTAWA</a>
+                </li>
+                <li class="kontakt">
+                    <a href="kontakt.html" class="active"><img src="img/tree.svg">KONTKAT</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div class="wrapper-kontakt fix-wrap">
+        <div class="phones">
+            <h2 class="section-title">ZADZWOŃ</h2>
+            <div class="igor">
+                <p class="green">Igor Tyjewski</p>
+                <p>500 220 619</p>
+            </div>
+            <div class="pawel">
+                <p class="green">Paweł Tyjewski</p>
+                <p>506 328 446</p>
+            </div>
+        </div>
+    </div>
+        <h2 class="section-title">PRZYJEDŹ</h2>
+        <div id="map_wrapper">
+            
+            <div id="map" class="mapping"></div>
+        </div>
+    <div class="wrapper-kontakt">
+        <div class="form">
+            <h2 class="section-title">NAPISZ</h2>
+   
+            <input class="name" type="text" placeholder="imię">
+            <input class="nazwisko" type="text" placeholder="nazwisko">
+   
+            <input class="email" type="text" placeholder="adres e-mail lub nr telefonu">
+            
+            <textarea class="tresc" cols="30" rows="10" placeholder="treść wiadomości"></textarea>
+            <div class="wyslij"><button id="run">wyślij</button></div>
+            <p class="output"></p>
+        </div>
+
+
+
+    </div>
+
+    <footer class="fix">
+        <div class="footer-wrapper">
+            <p>&copy; 2018 WSZELKIE PRAWA ZASTRZEŻONE</p>
+            <p>REALIZACJA ARKADIUSZ PAWLAK</p>
+        </div>
+    </footer>
+
+    <script src="js/app.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDyxlvQ9tIGRFWobOqQ7RzW2gWaDzQixi8&callback=initMap">
+    </script>
+    
+</body>
+</html>

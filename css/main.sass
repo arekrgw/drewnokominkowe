@@ -151,3 +151,138 @@ footer
     color: #6f6f6f
     margin: 30px 0
 
+//kontakt
+.wrapper-kontakt
+    width: 1000px
+    margin: auto
+    padding: 50px 0 100px 0
+.fix-wrap
+    padding-bottom: 50px
+#map_wrapper 
+    width: 100%
+    height: 350px
+    #map 
+        width: 100%
+        height: 100%
+        -webkit-box-shadow: 0px 1px 6px rgba(0,0,0,0.16)
+        -moz-box-shadow: 0px 1px 6px rgba(0,0,0,0.16)
+        box-shadow: 0px 1px 6px rgba(0,0,0,0.16)
+        
+.phones
+    display: flex
+    flex-wrap: wrap
+    h2
+        width: 100%
+        text-align: center
+
+    div
+        box-sizing: border-box
+        width: calc(50% - 10px)
+        background: #FCFCFC
+        box-shadow: 0 1px 2px rgba(0,0,0,0.05)
+        border: 1px solid #AEAEAE
+        border-radius: 5px
+        text-align: center
+        cursor: pointer
+        p
+            font-size: 44px
+            font-weight: 300
+        .green
+            font-size: 25px
+            color: #158500
+            font-weight: 400
+.igor
+    margin-right: 10px
+.pawel
+    margin-left: 10px
+
+.form
+    width: 100%
+    display: flex
+    flex-wrap: wrap
+    p
+        text-align: center
+        width: 100%
+.section-title
+    width: 100%
+    font-size: 29px
+    font-weight: 300
+    text-align: center
+    margin: 15px 0
+
+input[type=text]
+    box-sizing: border-box
+    background: #FCFCFC
+    border-radius: 5px
+    border: 1px solid #C5C5C5
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05)
+    font-size: 23px
+    padding: 5px 15px
+    font-weight: 300
+    font-family: 'Lato', sans-serif
+    transition: all .3s ease-in-out
+    &::placeholder
+        color: #76B852
+        opacity: .7
+    &:focus
+        outline: none
+        box-shadow: 0 1px 6px rgba(0,0,0,0.4)
+
+.name, .nazwisko
+    width: calc(50% - 10px)
+.name
+    margin: 10px 10px 10px 0px
+.nazwisko
+    margin: 10px 0px 10px 10px
+    
+
+.email
+    width: 100%
+
+.tresc
+    width: 100%
+    box-sizing: border-box
+    background: #FCFCFC
+    border-radius: 5px
+    border: 1px solid #C5C5C5
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05)
+    font-size: 23px
+    padding: 5px 15px
+    font-weight: 300
+    font-family: 'Lato', sans-serif
+    margin: 10px 0
+    transition: all .3s ease-in-out
+    &::placeholder
+        color: #76B852
+        opacity: .7
+    &:focus
+        outline: none
+        box-shadow: 0 1px 6px rgba(0,0,0,0.4)
+
+.wyslij
+    width: 100%
+    display: flex
+    justify-content: center
+
+    button
+        background: #76b852
+        background: -moz-linear-gradient(-45deg, #76b852 0%, #8dc26f 100%)
+        background: -webkit-linear-gradient(-45deg, #76b852 0%, #8dc26f 100%)
+        background: linear-gradient(135deg, #76b852 0%, #8dc26f 100%)
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#76b852', endColorstr='#8dc26f',GradientType=1 )
+        border: none
+        border-radius: 5px
+        color: #ffffff
+        font-size: 21px
+        padding: 5px 70px
+        cursor: pointer
+        &:focus
+            outline: none
+
+.gone
+    background: #EEEEEE !important
+
+.success
+    color: green
+.error
+    color: red
