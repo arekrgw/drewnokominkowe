@@ -6,6 +6,8 @@
     margin: 0
 body
     font-family: 'Lato', sans-serif
+    min-height: 100vh
+    position: relative
 
 a
     text-decoration: none
@@ -94,6 +96,7 @@ ul
 
 footer
     background: #343434
+
     .footer-wrapper
         color: rgba(255,255,255,.4)
         margin: auto
@@ -103,3 +106,48 @@ footer
         display: flex
         font-weight: 300
         justify-content: space-between
+.fix
+    position: absolute
+    bottom: 0
+    left: 0
+    right: 0
+//dostawa
+
+.wrapper-dostawa
+    width: 1000px
+    margin: auto
+    font-weight: 300
+    display: flex
+    flex-wrap: wrap
+    padding: 50px 0
+
+    img
+        width: calc(50% - 10px)
+        box-shadow: 0 3px 6px rgba(0,0,0,0.16)
+        border-radius: 10px
+        height: 300px
+    
+.img-one
+    margin-right: 10px
+.img-two
+    margin-left: 10px
+.info
+    box-sizing: border-box
+    width: calc(50% - 10px)
+    background: #F8F8F8
+    box-shadow: 0 3px 2px rgba(0,0,0,0.16)
+    border-radius: 10px
+    font-size: 27px
+    padding: 10px 20px
+    text-align: center
+
+.days
+    margin-right: 10px
+.hours
+    margin-left: 10px
+.dostawa-desc
+    text-align: center
+    font-size: 23px
+    color: #6f6f6f
+    margin: 30px 0
+
