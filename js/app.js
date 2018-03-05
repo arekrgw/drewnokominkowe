@@ -185,52 +185,97 @@ function initMap() {
 }
     //OSK END
 
-
+///////////////////////////////////////////////////
 var run = document.querySelector('#run'),
-    name = document.querySelector('.name'),
+    name1 = document.querySelector('.name'),
     email = document.querySelector('.email'),
     surname = document.querySelector('.nazwisko'),
     tresc = document.querySelector('.tresc'),
     output = document.querySelector('.output');
 
-var mailData = {
-    imie: name.value,
-    nazwisko: surname.value,
-    email: email.value,
-    tresc: tresc.value
+
+var dataFlag = {
+  nameF: false,
+  emailF: false,
+  surnameF: false,
+  trescF: false
+};
+var mailData = new FormData();
+var sent = false
+
+function checkIfNotEmpty(e){
+  if(e.target.value != ''){
+    switch(e.target.classList[0]){
+      case 'name':
+        mailData.append('imie', name1.value);
+        dataFlag.nameF = true; 
+        break;
+      case 'email':
+        mailData.append('email', email.value);
+        dataFlag.emailF = true;
+        break;
+      case 'nazwisko':
+        mailData.append('nazwisko', surname.value);
+        dataFlag.surnameF = true;
+        break;
+      case 'tresc':
+        mailData.append('tresc', tresc.value);
+        dataFlag.trescF = true;
+        break;
+    }
+  }
+  else{
+    switch(e.target.classList[0]){
+      case 'name':
+        dataFlag.nameF = false;    
+        break;
+      case 'email':
+        dataFlag.emailF = false;    
+        break;
+      case 'nazwisko':  
+        dataFlag.surnameF = false;
+        break;
+      case 'tresc':  
+        dataFlag.trescF = false;
+        break;
+    }
+  }
+  if(!sent){
+    if(dataFlag.emailF && dataFlag.nameF && dataFlag.surnameF && dataFlag.trescF){
+      run.disabled = false;
+      run.classList.add('ready');
+    }
+    else{
+      run.disabled = true;
+      run.classList.remove('ready');
+    }
+  }
 }
 
+name1.addEventListener('keyup', checkIfNotEmpty);
+email.addEventListener('keyup', checkIfNotEmpty);
+surname.addEventListener('keyup', checkIfNotEmpty);
+tresc.addEventListener('keyup', checkIfNotEmpty);
+
+
+
 run.addEventListener('click', function(){
-    output.classList.remove('error');
-    output.innerHTML="Wysyłanie...";
-    var mailData = {
-        imie: name.value,
-        nazwisko: surname.value,
-        tresc: tresc.value
-    };
-    run.classList.add('gone');
-    run.setAttribute('disabled', true);
-    var ajax = new XMLHttpRequest();
-      ajax.open('POST', 'php/sendmail.php');
-
-      ajax.onreadystatechange = function(){
-
-        if(ajax.readyState == 4 && ajax.status == 200){
-           if(ajax.responseText == 'success'){
-              output.classList.add('success');
-              output.innerHTML = 'Wiadomość została wysłana';
-              flag = true;
-           }
-           else{
-              output.classList.add('error');
-              output.innerHTML = 'Wystąpił błąd, skontaktuj się telefonicznie';
-              run.classList.remove('gone');
-              run.removeAttribute('disabled');
-              flag = false;
-           }
-        }
-
-
-      };
-      ajax.send(mailData);
+  output.classList.remove('error');
+  output.innerHTML = '';
+  run.disabled = true;
+  run.classList.remove('ready');
+  axios.post('../php/sendmail.php', mailData)
+    .then(function(response){
+      if(response.data == 'success'){
+        output.classList.add('success');
+        output.innerHTML = 'Wiadomość została wysłana, dziękujemy za kontakt';
+        sent = true;
+      }
+      else{
+        output.classList.add('error');
+        output.innerHTML = 'Wystąpił błąd, prosimy o kontakt telefoniczny';
+        run.disabled = false;
+        run.classList.add('ready');
+      }
+    });
 });

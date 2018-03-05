@@ -7,10 +7,9 @@ if(isset($_POST['email']) && isset($_POST['imie']) && isset($_POST['nazwisko']) 
    $mess = nl2br($_POST['tresc']);
    $naz = $_POST['nazwisko'];
    
-   $to = 'arekpawlak14@wp.pl';
-   $from = $mail;
-   $subject = "Wiadomość ze strony";
-   $message = '<b>Imie:</b> '.$im.'<b>Nazwisko:</b> '.$naz.' <br><b>Email:</b> '.$mail.' <p>'.$mess.'</p>';
+   $to = 'porabanekontakt@gmail.com';
+   $subject = "Wiadomosc ze strony";
+   $message = '<b>Imie:</b> '.$im.'<b> Nazwisko:</b> '.$naz.' <br><b>Email:</b> '.$mail.' <p>'.$mess.'</p>';
    
    $headers = "From: $mail\n";
    $headers .= "MIME-Version: 1.0\n";
@@ -24,5 +23,7 @@ if(isset($_POST['email']) && isset($_POST['imie']) && isset($_POST['nazwisko']) 
 
    
 }
+else
+      echo $_POST['email'];
 
 ?>

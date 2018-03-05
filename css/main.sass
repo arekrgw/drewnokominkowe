@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Lato:100,300,400,700&subset=latin-ext')
 
 
+
 *
     padding: 0
     margin: 0
@@ -8,6 +9,7 @@ body
     font-family: 'Lato', sans-serif
     min-height: 100vh
     position: relative
+    background: url('../img/crossword.png')
 
 a
     text-decoration: none
@@ -16,84 +18,157 @@ a
 // header
 header
     box-shadow: 0 4px 6px rgba(0,0,0,0.07)
-    padding: 15px 0 30px 0
+    padding: 15px 30px 30px 30px
+    background: rgba(255,255,255,0.5)
+    width: 100%
+    box-sizing: border-box
     img
         max-height: 150px
-
+        display: block 
+        margin: 0 auto
+        @media screen and(max-width: 660px)
+            width: 100%
 nav
     margin-top: 30px
-ul
-    display: flex
-    justify-content: center
-    list-style-type: none
-    font-weight: bold
-    text-decoration: underline
-    li a
-        font-size: 32px
-        line-height: 36px
+    ul
         display: flex
-        align-items: center
-        margin: 0 15px
-        opacity: .65
-        transition: all .3s ease-in-out
+        justify-content: center
+        list-style-type: none
+        font-weight: bold
+        @media screen and(max-width: 660px)
+            flex-direction: column
+            align-items: center
+        li 
+        
+            @media screen and(max-width: 660px)
+                margin: 10px 0
+            a
+                font-size: 28px
+                line-height: 32px
+                display: flex
+                align-items: center
+                margin: 0 15px         
+                position: relative
+                img
+                    height: 36px
+                    width: 36px
 
-        &:hover
-            opacity: 1
 
-        img
-            height: 36px
 
+            
+.small-screen
+    display: none
+    @media screen and(max-width: 660px)
+        display: block
+.dostawa a img
+    margin-right: 5px
+.dostawa a img:last-child
+    margin-left: 5px
 .active
-    opacity: 1
+    &::after
+        content: ''
+        position: absolute
+        height: 10px
+        width: calc(100% + 20px)
+        left: 50%
+        transform: translateX(-50%)
+        bottom: 0
+        background: rgba(0,0,0, 0.5)
+        z-index: -1
 
 .wrapper-oferta
     width: 1200px
     margin: 40px auto
     display: flex
-    flex-wrap: wrap
+    @media screen and (max-width: 1200px)
+        width: 100%
+    @media screen and (max-width: 870px)
+        flex-direction: column
+        align-items: center
+
+
+
+.column
+    width: 33.33333%
+    @media screen and (max-width: 870px)
+        width: 85%
+        
 
 .item
     box-sizing: border-box
     background: #F3F3F3
     border-radius: 10px
     overflow: hidden
-    width: calc(25% - 30px)
-    margin: 15px
-    height: 400px
-    display: flex
+    width: calc(100%-20px)
+    margin: 20px 10px 20px 10px
     box-shadow: 0 0 6px rgba(0,0,0,0.35)
     cursor: pointer
     transition: all .3s linear
-
+    position: relative
+    
+       
     &:hover
         box-shadow: 0 0 15px rgba(0,0,0,0.7)
     .side-image
-        width: 80px
-        height: 100%
+        width: 100px
         overflow: hidden
+        position: absolute
+        top: 0
+        left: 0
+        bottom: 0
+        @media screen and (max-width: 940px)
+            width: 70px
+        @media screen and (max-width: 870px)
+            width: 120px
+        @media screen and (max-width: 500px)
+            width: 70px
         img
-            height: 100%
-            transform: translateX(-50%)
+            max-height: 100%
+            // transform: translateX(-50%)
     .item-content
-        width: calc(100% - 80px)
+        width: calc(100% - 100px)
+        margin-left: 100px
         padding: 10px
         display: flex
         flex-direction: column
         box-sizing: border-box
-
+        align-content: center center
+        @media screen and (max-width: 940px)
+            margin-left: 70px
+            width: calc(100% - 70px)
+        @media screen and (max-width: 870px)
+            margin-left: 120px
+            width: calc(100% - 120px)
+        @media screen and (max-width: 500px)
+            margin-left: 70px
+            width: calc(100% - 70px)
         h1
-            height: 15%
             text-align: center
             font-size: 26px
         .desc
-            height: 75%
-        .price
-            height: 10%
+            padding: 10px 10px
+        .wart-head
+            margin-top: 15px
+            color: brown
+            font-weight: bold
             text-align: center
-            color: #1E1E1E
+            text-transform: uppercase
+        .wart-cont
+            text-align: center
+            margin-bottom: 15px
+            font-weight: 300
+        .price
+            padding-top: 10px
+            border-top: 1px solid #ccc
+            text-align: center
+            color: #158500
             font-size: 26px
             font-weight: bold
-
+            sup
+                font-size: 16px
+.column .item:last-child
+    @media screen and (max-width: 870px)
+        margin-bottom: 0
 footer
     background: #343434
 
@@ -104,13 +179,53 @@ footer
         padding: 15px 15px
         box-sizing: border-box
         display: flex
+        flex-wrap: wrap
+        @media screen and (max-width: 1200px)
+            width: 100% !important
+        @media screen and (max-width: 660px)
+            flex-direction: column
+            align-items: center
+@media (min-height: 910px)
+    .fix
+        margin-top: 50px
+.other
+    width: 1000px !important
+.credentials
+    width: 50%
+    display: flex
+    align-items: center
+    @media screen and (max-width: 660px)
+        justify-content: center
+        margin-bottom: 25px
+        margin-top: 10px
+    ul
+        list-style-type: none
         font-weight: 300
-        justify-content: space-between
-.fix
-    position: absolute
-    bottom: 0
-    left: 0
-    right: 0
+        letter-spacing: 1px
+        @media screen and (max-width: 660px)
+            text-align: center
+
+.fb-page-cont
+    width: 50%
+    display: flex
+    justify-content: flex-end
+    margin-bottom: 15px
+    @media screen and (max-width: 660px)
+        justify-content: center
+.author
+    width: 100%
+    display: flex
+    align-items: center
+    flex-direction: column
+    justify-content: center
+    padding-top: 15px
+    border-top: 1px solid #222
+
+.expose
+    font-weight: bold
+    font-size: 1.1em
+.normal
+    font-weight: 300
 //dostawa
 
 .wrapper-dostawa
@@ -120,42 +235,95 @@ footer
     display: flex
     flex-wrap: wrap
     padding: 50px 0
-
+    box-sizing: border-box
+    @media screen and(max-width: 1000px)
+        width: 100%
+        padding: 50px 30px
     img
         width: calc(50% - 10px)
         box-shadow: 0 3px 6px rgba(0,0,0,0.16)
         border-radius: 10px
         height: 300px
-    
+        @media screen and(max-width: 740px)
+            height: 200px
+        @media screen and(max-width: 574px)
+            width: 100%
+            height: 250px
 .img-one
     margin-right: 10px
+    @media screen and(max-width: 574px)
+        margin-right: 0
 .img-two
     margin-left: 10px
+    @media screen and(max-width: 574px)
+        margin-left: 0
+        margin-top: 20px
 .info
     box-sizing: border-box
     width: calc(50% - 10px)
     background: #F8F8F8
-    box-shadow: 0 3px 2px rgba(0,0,0,0.16)
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2)
     border-radius: 10px
     font-size: 27px
     padding: 10px 20px
     text-align: center
+    @media screen and(max-width: 660px)
+        width: 100%
 
 .days
     margin-right: 10px
+    display: flex
+    align-items: center
+    justify-content: center
+    flex-direction: column
+    @media screen and(max-width: 660px)
+        margin-right: 0
 .hours
     margin-left: 10px
+    display: flex
+    align-items: center
+    justify-content: center
+    flex-direction: column
+    @media screen and(max-width: 660px)
+        margin-left: 0
+        margin-top: 20px
+        font-size: 22px
+.cena
+    width: 100%
+    margin-top: 20px
+    
+    span
+        font-weight: bold
+        sup
+            font-size: 0.7em
+    @media screen and(max-width: 660px)
+        font-size: 22px
 .dostawa-desc
     text-align: center
     font-size: 23px
     color: #6f6f6f
-    margin: 30px 0
-
+    margin: 30px 0 7px 0
+.mniejsze
+    margin-top: 5px
+    text-align: center
+    width: 100%
+    color: rgba(0,0,0,0.7)
+.szczapy
+    margin-bottom: 30px
+    margin-top: 0
+.star
+    color: red
+    font-size: 1.1em
+    font-weight: bold
 //kontakt
 .wrapper-kontakt
     width: 1000px
     margin: auto
     padding: 50px 0 100px 0
+    box-sizing: border-box
+    @media screen and(max-width: 1000px)
+        width: 100%
+        padding: 50px 30px
 .fix-wrap
     padding-bottom: 50px
 #map_wrapper 
@@ -171,13 +339,17 @@ footer
 .phones
     display: flex
     flex-wrap: wrap
+    justify-content: center
+    margin-bottom: 50px
+    color: #111
+    text-decoration: none
     h2
         width: 100%
         text-align: center
 
     div
         box-sizing: border-box
-        width: calc(50% - 10px)
+        width: 100%
         background: #FCFCFC
         box-shadow: 0 1px 2px rgba(0,0,0,0.05)
         border: 1px solid #AEAEAE
@@ -191,11 +363,6 @@ footer
             font-size: 25px
             color: #158500
             font-weight: 400
-.igor
-    margin-right: 10px
-.pawel
-    margin-left: 10px
-
 .form
     width: 100%
     display: flex
@@ -222,7 +389,7 @@ input[type=text]
     font-family: 'Lato', sans-serif
     transition: all .3s ease-in-out
     &::placeholder
-        color: #76B852
+        color: #158500
         opacity: .7
     &:focus
         outline: none
@@ -230,10 +397,17 @@ input[type=text]
 
 .name, .nazwisko
     width: calc(50% - 10px)
+    @media screen and(max-width: 660px)
+            width: 100%
 .name
     margin: 10px 10px 10px 0px
+    @media screen and(max-width: 660px)
+        margin-bottom: 0
+        margin-right: 0
 .nazwisko
     margin: 10px 0px 10px 10px
+    @media screen and(max-width: 660px)
+        margin-left: 0
     
 
 .email
@@ -253,7 +427,7 @@ input[type=text]
     margin: 10px 0
     transition: all .3s ease-in-out
     &::placeholder
-        color: #76B852
+        color: #158500
         opacity: .7
     &:focus
         outline: none
@@ -265,24 +439,33 @@ input[type=text]
     justify-content: center
 
     button
-        background: #76b852
-        background: -moz-linear-gradient(-45deg, #76b852 0%, #8dc26f 100%)
-        background: -webkit-linear-gradient(-45deg, #76b852 0%, #8dc26f 100%)
-        background: linear-gradient(135deg, #76b852 0%, #8dc26f 100%)
-        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#76b852', endColorstr='#8dc26f',GradientType=1 )
+        background: #EEEEEE
         border: none
         border-radius: 5px
         color: #ffffff
         font-size: 21px
         padding: 5px 70px
         cursor: pointer
+        transition: all .3s linear
         &:focus
             outline: none
-
-.gone
-    background: #EEEEEE !important
-
+.output
+    font-size: 16px
+    font-weight: 300
+    line-height: 20px
+    height: 20px
+#run.ready
+    background: #76b852 !important
+    background: -moz-linear-gradient(-45deg, #76b852 0%, #8dc26f 100%) !important
+    background: -webkit-linear-gradient(-45deg, #76b852 0%, #8dc26f 100%) !important
+    background: linear-gradient(135deg, #76b852 0%, #8dc26f 100%) !important
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#76b852', endColorstr='#8dc26f',GradientType=1 ) !important
 .success
     color: green
 .error
     color: red
+.empty
+    border-color: red
+.good
+    border-color: green
+
