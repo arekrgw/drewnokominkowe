@@ -55,16 +55,16 @@
                 <p>500 220 619</p>
             </div>
         </div>
-        <form class="form" method="POST" action="/" name="Pytania ze strony" data-netlify="true">
+        <form class="form" method="POST" action="/kontakt.html" name="Pytania ze strony" data-netlify="true">
             <h2 class="section-title">NAPISZ</h2>
    
-            <input class="name" type="text" placeholder="imię">
-            <input class="nazwisko" type="text" placeholder="nazwisko">
+            <input name="Imię" class="name" type="text" placeholder="imię">
+            <input class="nazwisko" name="Nazwisko" type="text" placeholder="nazwisko">
    
-            <input class="email" type="text" placeholder="adres e-mail lub nr telefonu">
+            <input name="E-mail" class="email" type="text" placeholder="adres e-mail lub nr telefonu">
             
-            <textarea class="tresc" cols="30" rows="10" placeholder="treść wiadomości"></textarea>
-            <div class="wyslij"><button id="run" disabled>wyślij</button></div>
+            <textarea class="tresc" name="Treść" cols="30" rows="10" placeholder="treść wiadomości"></textarea>
+            <div class="wyslij"><button id="run" type="submit" disabled>wyślij</button></div>
             <p class="output"></p>
         </form>
         </div>
