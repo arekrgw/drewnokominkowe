@@ -259,23 +259,23 @@ tresc.addEventListener('keyup', checkIfNotEmpty);
 
 
 
-run.addEventListener('click', function(){
-  output.classList.remove('error');
-  output.innerHTML = '';
-  run.disabled = true;
-  run.classList.remove('ready');
-  axios.post('../php/sendmail.php', mailData)
-    .then(function(response){
-      if(response.data == 'success'){
-        output.classList.add('success');
-        output.innerHTML = 'Wiadomość została wysłana, dziękujemy za kontakt';
-        sent = true;
-      }
-      else{
-        output.classList.add('error');
-        output.innerHTML = 'Wystąpił błąd, prosimy o kontakt telefoniczny';
-        run.disabled = false;
-        run.classList.add('ready');
-      }
-    });
-});
+// run.addEventListener('click', function(){
+//   output.classList.remove('error');
+//   output.innerHTML = '';
+//   run.disabled = true;
+//   run.classList.remove('ready');
+//   axios.post('../php/sendmail.php', mailData)
+//     .then(function(response){
+//       if(response.data == 'success'){
+//         output.classList.add('success');
+//         output.innerHTML = 'Wiadomość została wysłana, dziękujemy za kontakt';
+//         sent = true;
+//       }
+//       else{
+//         output.classList.add('error');
+//         output.innerHTML = 'Wystąpił błąd, prosimy o kontakt telefoniczny';
+//         run.disabled = false;
+//         run.classList.add('ready');
+//       }
+//     });
+// });
